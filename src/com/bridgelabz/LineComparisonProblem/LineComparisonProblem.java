@@ -4,6 +4,15 @@ import java.util.Scanner;
 
 public class LineComparisonProblem {
 
+	public static void compareTo(double length1, double length2) {
+		if (length1 > length2)
+			System.out.println("Line1 is greater than Line2");
+		else if (length1 < length2)
+			System.out.println("Line1 is smaller than Line2");
+		else
+			System.out.println("Both lines are equal");
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Line Comparison Computation Program");
 		int x1, y1, x2, y2, x3, y3, x4, y4;
@@ -35,9 +44,6 @@ public class LineComparisonProblem {
 
 		System.out.println("Length of the line (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + length1);
 		System.out.println("Length of the line (" + x3 + ", " + y3 + ") and (" + x4 + ", " + y4 + ") is " + length2);
-		if (length1 == length2)
-			System.out.println("Both Line1 and Line2 are equal");
-		else
-			System.out.println("Both lines are not equal");
+		compareTo(length1, length2);
 	}
 }
