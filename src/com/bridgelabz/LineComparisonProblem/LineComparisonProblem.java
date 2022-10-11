@@ -4,46 +4,49 @@ import java.util.Scanner;
 
 public class LineComparisonProblem {
 
-	public static void compareTo(double length1, double length2) {
-		if (length1 > length2)
-			System.out.println("Line1 is greater than Line2");
-		else if (length1 < length2)
-			System.out.println("Line1 is smaller than Line2");
-		else
-			System.out.println("Both lines are equal");
-	}
-
 	public static void main(String[] args) {
 		System.out.println("Welcome to Line Comparison Computation Program");
-		int x1, y1, x2, y2, x3, y3, x4, y4;
+		calculateTwoLength();
+		checkingEqualsLine(0, 0);
+	}
 
-		double length1, length2;
-
-		@SuppressWarnings("resource")
+	private static void calculateTwoLength() {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the value of a1: ");
+		int a1 = sc.nextInt();
+		System.out.println("Enter the value of a2: ");
+		int a2 = sc.nextInt();
+		System.out.println("Enter the value of b1: ");
+		int b1 = sc.nextInt();
+		System.out.println("Enter the value of b2: ");
+		int b2 = sc.nextInt();
 
-		System.out.println("enter x1 point");
-		x1 = sc.nextInt();
-		System.out.println("enter y1 point");
-		y1 = sc.nextInt();
-		System.out.println("enter x2 point");
-		x2 = sc.nextInt();
-		System.out.println("enter y2 point");
-		y2 = sc.nextInt();
-		System.out.println("enter x3 point");
-		x3 = sc.nextInt();
-		System.out.println("enter y3 point");
-		y3 = sc.nextInt();
-		System.out.println("enter x4 point");
-		x4 = sc.nextInt();
-		System.out.println("enter y4 point");
-		y4 = sc.nextInt();
+		System.out.println("Enter the value of x1: ");
+		int x1 = sc.nextInt();
+		System.out.println("Enter the value of x2: ");
+		int x2 = sc.nextInt();
+		System.out.println("Enter the value of y1: ");
+		int y1 = sc.nextInt();
+		System.out.println("Enter the value of y2: ");
+		int y2 = sc.nextInt();
+		sc.close();
 
-		length1 = Math.sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
-		length2 = Math.sqrt((x4 - x3) ^ 2 + (y4 - y3) ^ 2);
+		double length1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+		System.out.println("Length of the line1 is: " + length1);
 
-		System.out.println("Length of the line (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + length1);
-		System.out.println("Length of the line (" + x3 + ", " + y3 + ") and (" + x4 + ", " + y4 + ") is " + length2);
-		compareTo(length1, length2);
+		double length2 = Math.sqrt((a2 - a1) * (a2 - a1) + (b2 - b1) * (b2 - b1));
+		System.out.println("Length of the line2 is: " + length2);
+	}
+
+	private static void checkingEqualsLine(double length1, double length2) {
+		int a = (int) length1;
+		int b = (int) length2;
+
+		if (a == b) {
+			System.out.println("Lines are equal");
+		} else {
+			System.out.println("Lines are not equal");
+		}
+		System.out.println(Double.compare(length1, length2));
 	}
 }
